@@ -1,9 +1,11 @@
-/build
+Application/build
 *.properties
 gradlew
 gradlew.bat
 .idea/*
 .google/*
 .gradle/*
+gradle/*
 build.gradle
 settings.gradle
+screenshots
