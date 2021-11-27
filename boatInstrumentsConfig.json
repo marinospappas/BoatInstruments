@@ -1,0 +1,30 @@
+{
+  "configVersion": "Wed Mar 24 10:24:47 GMT+01:00 2021",
+  "network": {
+    "nmeaGwIp": "192.168.1.111",
+    "nmeaGwPort": 8888,
+    "socketTimeout": 200,
+    "validateChksum": false,
+    "maxLinesRead": 10,
+    "demoMode": true,
+    "demoFile": "boatInstrumentsDemo.txt"
+  },
+  "display": {
+    "displayMode": "TRANSITION",
+    "instrumentColourDay": "#EEEE00",
+    "backgroundColourDay": "#000000",
+    "instrumentColourNight": "#FF4444",
+    "backgroundColourNight": "#000000",
+    "nightMode": false,
+    "nightModeAuto": false
+  },
+  "timers": {
+    "initialInterval": 300,
+    "mainAppInterval": 1000
+  },
+  "wind": {
+    "calcTrueWind": true,
+    "calcGndWind": true,
+    "polar": "zephyrPolar.json"
+  }
+}

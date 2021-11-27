@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    android:id="@+id/main_frame"
+    tools:context="com.mpdev.android.boatinstruments.SetupActivity">
+
+    <!-- heading -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:id="@+id/title_box"
+            android:orientation="horizontal">
+            <!-- screen name -->
+            <TextView
+                android:id="@+id/setup_screen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/margin_tiny"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:text="@string/log_viewer"
+                android:textAlignment="center"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="24sp"
+                android:textStyle="bold|italic" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- main setup view vertical scrolling -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars = "vertical">
+
+        <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars = "vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:id="@+id/log_container">
+        </TextView>
+
+        </HorizontalScrollView>
+
+    </ScrollView>
+
+</LinearLayout>

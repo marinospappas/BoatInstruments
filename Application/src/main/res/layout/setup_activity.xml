@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    android:id="@+id/main_frame"
+    tools:context="com.mpdev.android.boatinstruments.SetupActivity">
+
+    <!-- heading -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <!-- save button -->
+            <ImageButton
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_margin="@dimen/margin_tiny"
+                android:adjustViewBounds="true"
+                android:background="#000000"
+                android:contentDescription="@string/save"
+                android:scaleType="fitXY"
+                android:src="@drawable/save1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:id="@+id/title_box"
+            android:orientation="horizontal">
+            <!-- screen name -->
+            <TextView
+                android:id="@+id/setup_screen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/margin_tiny"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="@string/setup_screen"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="24sp"
+                android:textStyle="bold|italic" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <!-- cancel button -->
+            <ImageButton
+                android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_margin="@dimen/margin_tiny"
+                android:adjustViewBounds="true"
+                android:background="#000000"
+                android:contentDescription="@string/cancel"
+                android:scaleType="fitXY"
+                android:src="@drawable/cancel1" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- main setup view vertical scrolling -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars = "vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:id="@+id/setup_container">
+        </FrameLayout>
+
+    </ScrollView>
+
+</LinearLayout>

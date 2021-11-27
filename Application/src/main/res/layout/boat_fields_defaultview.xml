@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright 2014 The Android Open Source Project
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/main_app_view"
+    tools:context="com.mpdev.android.boatinstruments.InstrumentsDisplayFragment">
+
+    <Button
+        android:id="@+id/action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/action"/>
+
+    <!-- program name -->
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_tiny"
+        android:text="@string/app_name"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:textStyle="italic"/>
+
+    <!-- application version -->
+    <TextView
+        android:id="@+id/app_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_tiny"
+        android:text="    "
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:textStyle="italic"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/def_frame"
+        android:scrollbars = "vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <!-- first row - boat speed / heading -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:baselineAligned="false">
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+                <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/boat_speed"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+                <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/boat_speed"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="60sp"
+                android:textStyle="bold" />
+
+                <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:gravity="end"
+                android:text="@string/knots"
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+                <View
+                android:id="@+id/line1l"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:text="@string/heading"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/heading"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="60sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_tiny"
+                    android:gravity="end"
+                    android:text="@string/deg_m"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <View
+                    android:id="@+id/line1r"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 2nd row - app. wind speed / angle -->
+        <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/app_wind_speed"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/app_wind_speed"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="60sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:gravity="end"
+                android:text="@string/knots"
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/line2l"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/app_wind_angle"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/app_wind_angle"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="60sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:gravity="end"
+                android:text="@string/deg"
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/line2r"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <!-- 3rd row - log / trip -->
+        <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_tiny"
+            android:text="@string/log_trip"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_tiny"
+            android:gravity="center"
+            android:id="@+id/boat_log"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/trip_log"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_tiny"
+            android:gravity="end"
+            android:text="@string/nautical_miles"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp" />
+
+        <View
+            android:id="@+id/line3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+
+    </LinearLayout>
+
+        <!-- 4th row - ground wind -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/ground_wind"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:gravity="center"
+                android:id="@+id/ground_wind"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="50sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:gravity="end"
+                android:text="@string/blank"
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/line4"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray"/>
+
+        </LinearLayout>
+
+        <!-- 5th row - depth / water temp -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:text="@string/depth"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/depth"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="60sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_tiny"
+                    android:gravity="end"
+                    android:text="@string/metres"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <View
+                    android:id="@+id/line5l"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:text="@string/water_temp"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/water_temp"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="60sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_tiny"
+                    android:gravity="end"
+                    android:text="@string/deg_celcius"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <View
+                    android:id="@+id/line5r"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 6th row - true wind speed / angle -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:text="@string/true_wind_speed"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/true_wind_speed"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="60sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_tiny"
+                    android:gravity="end"
+                    android:text="@string/knots"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <View
+                    android:id="@+id/line6l"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:text="@string/true_wind_angle"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/true_wind_angle"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="60sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_tiny"
+                    android:gravity="end"
+                    android:text="@string/deg"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <View
+                    android:id="@+id/line6r"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 7th row - polar speed and efficiency -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:text="@string/polar_speed"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/polar_speed"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="60sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_tiny"
+                    android:gravity="end"
+                    android:text="@string/knots"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <View
+                    android:id="@+id/line7l"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:text="@string/polar_eff"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/polar_eff"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="60sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_tiny"
+                    android:gravity="end"
+                    android:text="@string/percent"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <View
+                    android:id="@+id/line7r"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 8th row - sog / cog -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:text="@string/sog"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/sog"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="60sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_tiny"
+                    android:gravity="end"
+                    android:text="@string/knots"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <View
+                    android:id="@+id/line8l"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:text="@string/cog"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/cog"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="60sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_tiny"
+                    android:gravity="end"
+                    android:text="@string/deg_m"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="15sp" />
+
+                <View
+                    android:id="@+id/line8r"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- 9th row - position (lat/long) -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/position"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:gravity="center"
+                android:id="@+id/pos_lat"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="45sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/pos_long"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="45sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:gravity="end"
+                android:text="@string/blank"
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/line9"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray"/>
+
+        </LinearLayout>
+
+        <!-- 10th row - next waypoint (name / dist / brng) -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:text="@string/next_wp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:gravity="center"
+                android:id="@+id/nextwp_name"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="45sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginTop="@dimen/margin_tiny"
+                        android:text="@string/distance"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:id="@+id/distance"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="45sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin_large"
+                        android:layout_marginBottom="@dimen/margin_tiny"
+                        android:gravity="end"
+                        android:text="@string/nautical_miles"
+                        android:textAlignment="textEnd"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_marginTop="@dimen/margin_tiny"
+                        android:text="@string/bearing"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:id="@+id/bearing"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="45sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin_large"
+                        android:layout_marginBottom="@dimen/margin_tiny"
+                        android:gravity="end"
+                        android:text="@string/deg_m"
+                        android:textAlignment="textEnd"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line10"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray"/>
+
+        </LinearLayout>
+
+            <!-- brightness button -->
+            <ImageButton
+                android:id="@+id/bright_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/margin_tiny"
+                android:adjustViewBounds="true"
+                android:background="#000000"
+                android:contentDescription="@string/brightness"
+                android:scaleType="fitXY"
+                android:src="@drawable/brightness_1" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

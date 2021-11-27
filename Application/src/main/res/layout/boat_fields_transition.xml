@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright 2014 The Android Open Source Project
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_app_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mpdev.android.boatinstruments.InstrumentsDisplayFragment">
+
+    <!-- heading -->
+
+    <!-- setup button -->
+    <ImageButton
+        android:id="@+id/action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:layout_marginTop="@dimen/margin_tiny"
+        android:adjustViewBounds="true"
+        android:background="#000000"
+        android:contentDescription="@string/setup"
+        android:scaleType="fitXY"
+        android:src="@drawable/setup2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- status -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:layout_marginTop="@dimen/margin_tiny"
+        android:adjustViewBounds="true"
+        android:background="#000000"
+        android:scaleType="fitXY"
+        android:id="@+id/status"
+        app:layout_constraintStart_toEndOf="@+id/action_button"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/Status" />
+
+    <!-- program name -->
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_tiny"
+        android:text="@string/app_name"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- application version -->
+    <TextView
+        android:id="@+id/app_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_tiny"
+        android:text="    "
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_name" />
+
+
+    <!--
+    container for the instrument data - 3 pages transition
+    -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/trans_frame"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_padding"
+        app:layout_constraintTop_toBottomOf="@+id/app_version" />
+
+    <!-- previous button -->
+    <ImageButton
+        android:id="@+id/prev_button"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:adjustViewBounds="true"
+        android:background="#000000"
+        android:contentDescription="@string/previous"
+        android:scaleType="fitXY"
+        android:src="@drawable/back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- padding for the trans_frame to align to as prev and next buttons may be gone -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/bottom_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- brightness button -->
+    <ImageButton
+        android:id="@+id/bright_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:adjustViewBounds="true"
+        android:background="#000000"
+        android:contentDescription="@string/brightness"
+        android:scaleType="fitXY"
+        android:src="@drawable/brightness_1"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- maximum button -->
+    <ImageButton
+        android:id="@+id/max_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:adjustViewBounds="true"
+        android:background="#000000"
+        android:contentDescription="@string/max_values"
+        android:scaleType="fitXY"
+        android:src="@drawable/max1_1"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- next button -->
+    <ImageButton
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginEnd="@dimen/margin_tiny"
+        android:adjustViewBounds="true"
+        android:background="#000000"
+        android:contentDescription="@string/next"
+        android:scaleType="fitXY"
+        android:src="@drawable/forward"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

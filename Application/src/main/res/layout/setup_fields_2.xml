@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mpdev.android.boatinstruments.SetupActivity">
+
+    <!-- network -->
+    <TextView
+        android:id="@+id/network_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Network"
+        android:textColor="#00BCD4"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- IP address -->
+    <TextView
+        android:id="@+id/ip_address_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ip_addess"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/network_label" />
+    <EditText
+        android:id="@+id/ip_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ip_address_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:digits="0123456789."
+        android:maxLength="15"
+        android:textSize="20sp"
+        android:inputType="number|numberDecimal" />
+
+    <!-- Port Number -->
+    <TextView
+        android:id="@+id/port_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/port_number"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ip_address" />
+    <EditText
+        android:id="@+id/port"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="5"
+        android:digits="0123456789"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/port_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="number" />
+
+    <!-- Demo mode -->
+    <TextView
+        android:id="@+id/demo_mode_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/demo_mode"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/port" />
+    <Switch
+        android:id="@+id/demo_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@string/off"
+        android:textOn="@string/on"
+        android:showText="true"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/demo_mode_label" />
+
+    <!-- Demo file -->
+    <TextView
+        android:id="@+id/demo_file_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/demo_file"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/demo_mode" />
+    <EditText
+        android:id="@+id/demo_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="30"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/demo_file_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text" />
+
+    <!-- Display -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/display"
+        android:id="@+id/display_label"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/demo_file"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#00BCD4"/>
+
+    <!-- Display mode -->
+    <TextView
+        android:id="@+id/disp_mode_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/disp_mode"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/display_label" />
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/disp_mode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/disp_mode_label">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/disp_vert_scroll"
+            android:text="@string/vertical_scrolling"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/disp_mode" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/disp_hor_scroll"
+            android:text="@string/horizontal_scrolling"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/disp_mode" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/disp_transition"
+            android:text="@string/transition"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/disp_mode" />
+    </RadioGroup>
+
+    <!-- end of setup screen -->
+    <View
+        android:layout_width="match_parent"
+        android:id="@+id/padding1"
+        app:layout_constraintTop_toBottomOf="@id/disp_mode"
+        android:layout_height="20dp"/>
+
+    <!-- final button - keep for this session -->
+    <Button
+        android:id="@+id/keep_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:background="@android:color/darker_gray"
+        android:contentDescription="@string/setup"
+        android:padding="@dimen/margin_small"
+        android:text="@string/keep_for_this_session"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/padding1" />
+
+</android.support.constraint.ConstraintLayout>

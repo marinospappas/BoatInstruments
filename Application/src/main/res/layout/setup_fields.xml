@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mpdev.android.boatinstruments.SetupActivity">
+
+    <!-- network -->
+    <TextView
+        android:id="@+id/network_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Network"
+        android:textColor="#00BCD4"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- IP address -->
+    <TextView
+        android:id="@+id/ip_address_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ip_addess"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/network_label" />
+    <EditText
+        android:id="@+id/ip_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ip_address_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:digits="0123456789."
+        android:maxLength="15"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        android:inputType="number|numberDecimal" />
+
+    <!-- Port Number -->
+    <TextView
+        android:id="@+id/port_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/port_number"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ip_address" />
+    <EditText
+        android:id="@+id/port"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="5"
+        android:digits="0123456789"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/port_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="number" />
+
+    <!-- Socket Timeout -->
+    <TextView
+        android:id="@+id/socket_timeout_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/socket_timeout"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/port" />
+    <EditText
+        android:id="@+id/socket_timeout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="5"
+        android:digits="0123456789"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/socket_timeout_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="number" />
+
+    <!-- validate checksum -->
+    <TextView
+        android:id="@+id/validate_chksum_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/validate_chksum"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/socket_timeout" />
+    <Switch
+        android:id="@+id/validate_chksum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@string/off"
+        android:textOn="@string/on"
+        android:showText="true"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/validate_chksum_label" />
+
+    <!-- Demo mode -->
+    <TextView
+        android:id="@+id/demo_mode_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/demo_mode"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/validate_chksum" />
+    <Switch
+        android:id="@+id/demo_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@string/off"
+        android:textOn="@string/on"
+        android:showText="true"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/demo_mode_label" />
+
+    <!-- Demo file -->
+    <TextView
+        android:id="@+id/demo_file_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/demo_file"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/demo_mode" />
+    <EditText
+        android:id="@+id/demo_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="30"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/demo_file_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text" />
+
+    <!-- Display -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/display"
+        android:id="@+id/display_label"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/demo_file"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#00BCD4"/>
+
+    <!-- Display mode -->
+    <TextView
+        android:id="@+id/disp_mode_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/disp_mode"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/display_label" />
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/disp_mode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/disp_mode_label">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/disp_vert_scroll"
+            android:text="@string/vertical_scrolling" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/disp_hor_scroll"
+            android:text="@string/horizontal_scrolling" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/disp_transition"
+            android:text="@string/transition" />
+    </RadioGroup>
+
+    <!-- instrument digits colour day -->
+    <TextView
+        android:id="@+id/instr_colour_day_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/instr_colour_day"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/disp_mode" />
+    <EditText
+        android:id="@+id/instr_colour_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="7"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_day_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text"
+        android:digits="0123456789#ABCDEF" />
+
+    <!-- background display colour day -->
+    <TextView
+        android:id="@+id/bgnd_colour_day_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/bgnd_colour_day"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_day" />
+    <EditText
+        android:id="@+id/bgnd_colour_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="7"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/bgnd_colour_day_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text"
+        android:digits="0123456789#ABCDEF" />
+
+    <!-- instrument digits colour day out-of-date -->
+    <TextView
+        android:id="@+id/instr_colour_day_out_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/instr_colour_day_out"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bgnd_colour_day" />
+    <EditText
+        android:id="@+id/instr_colour_day_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="7"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_day_out_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text"
+        android:digits="0123456789#ABCDEF" />
+
+    <!-- instrument digits colour day max values -->
+    <TextView
+        android:id="@+id/instr_colour_max_day_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/instr_colour_max_day"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_day_out" />
+    <EditText
+        android:id="@+id/instr_colour_max_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="7"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_max_day_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text"
+        android:digits="0123456789#ABCDEF" />
+
+    <!-- instrument digits colour night -->
+    <TextView
+        android:id="@+id/instr_colour_night_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/instr_colour_night"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_max_day" />
+    <EditText
+        android:id="@+id/instr_colour_night"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="7"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_night_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text"
+        android:digits="0123456789#ABCDEF" />
+
+    <!-- background display colour night -->
+    <TextView
+        android:id="@+id/bgnd_colour_night_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/bgnd_colour_night"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_night" />
+    <EditText
+        android:id="@+id/bgnd_colour_night"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="7"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/bgnd_colour_night_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text"
+        android:digits="0123456789#ABCDEF" />
+
+    <!-- instrument digits colour night out-of-date -->
+    <TextView
+        android:id="@+id/instr_colour_night_out_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/instr_colour_night_out"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bgnd_colour_night" />
+    <EditText
+        android:id="@+id/instr_colour_night_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="7"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_night_out_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text"
+        android:digits="0123456789#ABCDEF" />
+
+    <!-- instrument digits colour night max values -->
+    <TextView
+        android:id="@+id/instr_colour_max_night_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/instr_colour_max_night"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_night_out" />
+    <EditText
+        android:id="@+id/instr_colour_max_night"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="7"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_max_night_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text"
+        android:digits="0123456789#ABCDEF" />
+
+    <!-- night mode -->
+    <TextView
+        android:id="@+id/night_mode_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/night_mode"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/instr_colour_max_night" />
+    <Switch
+        android:id="@+id/night_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@string/off"
+        android:textOn="@string/on"
+        android:showText="true"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/night_mode_label" />
+
+    <!-- auto night mode -->
+    <TextView
+        android:id="@+id/auto_night_mode_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/auto_night_mode"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/night_mode" />
+    <Switch
+        android:id="@+id/auto_night_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@string/off"
+        android:textOn="@string/on"
+        android:showText="true"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/auto_night_mode_label" />
+
+    <!-- Wind -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wind"
+        android:id="@+id/wind_label"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/auto_night_mode"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#00BCD4"/>
+
+    <!-- calculate true wind -->
+    <TextView
+        android:id="@+id/calctrwind_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/calc_true_wind"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wind_label" />
+    <Switch
+        android:id="@+id/calc_true_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@string/off"
+        android:textOn="@string/on"
+        android:showText="true"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calctrwind_label" />
+
+    <!-- calculate ground wind -->
+    <TextView
+        android:id="@+id/calcgdwind_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/calc_gnd_wind"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calc_true_wind" />
+    <Switch
+        android:id="@+id/calc_gnd_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@string/off"
+        android:textOn="@string/on"
+        android:showText="true"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calcgdwind_label" />
+
+    <!-- polar file -->
+    <TextView
+        android:id="@+id/polar_file_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/polar_file"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calc_gnd_wind" />
+    <EditText
+        android:id="@+id/polar_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="30"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/polar_file_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text" />
+
+    <!-- timers -->
+    <TextView
+        android:id="@+id/timers_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timers"
+        android:textColor="#00BCD4"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/polar_file" />
+
+    <!-- initial timer -->
+    <TextView
+        android:id="@+id/timeout_outofdate_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timeout_outofdate"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timers_label" />
+    <EditText
+        android:id="@+id/timeout_outofdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/timeout_outofdate_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:digits="0123456789"
+        android:maxLength="5"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        android:inputType="number" />
+
+    <!-- maximum values  -->
+    <TextView
+        android:id="@+id/max_values"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/max_values"
+        android:textColor="#00BCD4"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/timeout_outofdate" />
+
+    <!-- max values filename -->
+    <TextView
+        android:id="@+id/max_file_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/max_values_file"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/max_values" />
+    <EditText
+        android:id="@+id/max_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="30"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/max_file_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text" />
+
+    <!-- reset max values button -->
+    <Button
+        android:id="@+id/reset_max_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:contentDescription="@string/setup"
+        android:padding="@dimen/margin_small"
+        android:text="@string/reset_max"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/max_file" />
+
+
+    <!-- log viewer  -->
+    <TextView
+        android:id="@+id/log_viewer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_viewer"
+        android:textColor="#00BCD4"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reset_max_button" />
+
+    <!-- log severity -->
+    <TextView
+        android:id="@+id/log_sev_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/log_severity"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/log_viewer" />
+    <EditText
+        android:id="@+id/log_severity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="1"
+        android:digits="234567"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/log_sev_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="number" />
+
+    <!-- include tag -->
+    <TextView
+        android:id="@+id/inc_tag_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/inc_tag"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/log_severity" />
+    <EditText
+        android:id="@+id/inc_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="30"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/inc_tag_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text" />
+
+    <!-- exclude tag -->
+    <TextView
+        android:id="@+id/exc_tag_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/exc_tag"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inc_tag" />
+    <EditText
+        android:id="@+id/exc_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="30"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/exc_tag_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text" />
+
+    <!-- from time -->
+    <TextView
+        android:id="@+id/from_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/from_time"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/exc_tag" />
+    <EditText
+        android:id="@+id/from_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="8"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:layout_constraintTop_toBottomOf="@id/from_time_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="time" />
+
+    <!-- reverse order -->
+    <TextView
+        android:id="@+id/reverse_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:text="@string/reverse_order"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/from_time" />
+    <Switch
+        android:id="@+id/reverse_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@string/off"
+        android:textOn="@string/on"
+        android:showText="true"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reverse_label" />
+
+    <!-- get log button -->
+    <Button
+        android:id="@+id/get_log_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:contentDescription="@string/setup"
+        android:padding="@dimen/margin_small"
+        android:text="@string/get_log"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reverse_order" />
+
+    <!-- end of setup screen -->
+    <View
+        android:layout_width="match_parent"
+        android:id="@+id/padding1"
+        app:layout_constraintTop_toBottomOf="@id/get_log_button"
+        android:layout_height="20dp"/>
+
+    <!-- final button - keep for this session -->
+    <Button
+        android:id="@+id/keep_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:background="@android:color/darker_gray"
+        android:contentDescription="@string/setup"
+        android:padding="@dimen/margin_small"
+        android:text="@string/keep_for_this_session"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/padding1" />
+
+</android.support.constraint.ConstraintLayout>
